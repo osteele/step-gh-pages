@@ -53,8 +53,9 @@ git init
 git config user.email "pleasemailus@wercker.com"
 git config user.name "werckerbot"
 
+# commit. [ci skip] tells wercker to skip the build
 git add .
-git commit -m "deploy from $WERCKER_STARTED_BY"
+git commit -m "[ci skip] deploy from $WERCKER_STARTED_BY"
 result=$(git push -f "$remote" master:"$branch" 2> /dev/null)
 
 if [ $? -ne 0 ]; then
